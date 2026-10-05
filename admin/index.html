@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin</title><style>
+:root{--primary:#0b1f3a;--secondary:#f3f5f8;--btn:#10b981;--bg:#fff;--tx:#1b2a41;--card:#f3f5f8;--hd:#0b1f3a;--ft:#0b1f3a;--acc:#10b981;--fs:16px;--ff:system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:var(--fs)/1.6 var(--ff);background:var(--bg);color:var(--tx)}
+h1,h2,h3{color:var(--hd);line-height:1.15;margin:0 0 .5em}h1{font-size:clamp(2.1rem,6vw,3.8rem)}h2{font-size:clamp(1.6rem,4vw,2.4rem)}
+a{color:inherit;text-decoration:none}.w{max-width:1120px;margin:auto;padding:0 20px}section{padding:64px 0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--primary);color:#fff}
+nav .w{display:flex;align-items:center;gap:18px;height:64px}nav .l{margin-left:auto;display:flex;gap:16px;align-items:center}
+.logo{font-weight:800;display:flex;align-items:center;gap:8px}.logo img{height:36px}
+.btn{display:inline-block;background:var(--btn);color:#fff;font-weight:700;padding:12px 22px;border-radius:99px;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn.g{background:#cbd5e1;color:#1b2a41}.btn.o{background:transparent;border:2px solid #fff}
+@media(max-width:760px){nav .l a:not(.btn){display:none}}
+.hero{color:#fff;padding:90px 0;background:var(--primary) center/cover}.hero h1{color:#fff;max-width:740px}.hero p.s{font-size:1.2rem;max-width:560px}
+.bd{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.bd span{background:#ffffff26;padding:7px 14px;border-radius:99px;font-size:.9rem}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 18px #0b1f3a14;transition:.25s}.card:hover{transform:translateY(-4px)}
+.ph{height:140px;border-radius:12px;margin-bottom:12px;background:#d1fae5 center/cover;display:grid;place-items:center;font-size:2rem}
+.pr{color:var(--acc);font-weight:800}.alt{background:var(--secondary)}
+.ba{position:relative;height:260px;border-radius:18px;overflow:hidden;background:#94a3b8 center/cover}.ba .b{position:absolute;inset:0;width:50%;background:#64748b center/cover;border-right:3px solid #fff}.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+details{background:var(--card);border-radius:12px;padding:12px 16px;margin-bottom:10px}summary{cursor:pointer;font-weight:600}
+.cta{background:var(--primary);color:#fff;text-align:center;border-radius:26px;padding:52px 20px}.cta h2{color:#fff}
+input,select,textarea{width:100%;padding:11px 13px;border:1.5px solid #cbd5e1;border-radius:10px;font:inherit;background:#fff;color:#1b2a41;margin:4px 0 10px}
+.err{color:#dc2626;font-size:.85rem;display:block;min-height:1em}
+.pg{display:none}.pg.on{display:block}.steps{display:flex;gap:6px;margin-bottom:18px}.steps i{flex:1;height:6px;border-radius:9px;background:#cbd5e1}.steps i.d{background:var(--btn)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.opt{border:2px solid #cbd5e1;border-radius:12px;padding:12px;cursor:pointer;text-align:center}.opt.s{border-color:var(--btn);background:#10b98122}
+.est{background:var(--primary);color:#fff;border-radius:14px;padding:12px 18px;margin:14px 0;display:flex;justify-content:space-between;font-weight:700}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px;z-index:30}.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;color:#fff;box-shadow:0 6px 16px #0004}
+footer{background:var(--ft);color:#cbd5e1;padding:36px 0;font-size:.9rem}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:#10b981;color:#04281c;padding:12px 22px;border-radius:99px;font-weight:700;display:none;z-index:99}
+.map{min-height:220px;border-radius:18px;background:#e2e8f0;display:grid;place-items:center;text-align:center;color:#475569;overflow:hidden}.map iframe{width:100%;height:260px;border:0}
+.rv{opacity:0;transform:translateY(22px);transition:.7s}.rv.in{opacity:1;transform:none}
+/* admin */
+.adm{position:fixed;inset:0;background:#f8fafc;color:#1b2a41;z-index:60;overflow:auto;display:none}.adm h2,.adm h3{color:#0b1f3a}
+.ab{position:sticky;top:0;background:#0b1f3a;padding:10px;display:flex;gap:8px;flex-wrap:wrap;z-index:2}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.tabs button{padding:8px 14px;border-radius:99px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;font:inherit}.tabs button.on{background:#10b981;color:#fff;border-color:#10b981}
+.it{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-bottom:12px}.it label,.fl label{font-size:.8rem;color:#475569;display:block}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 12px}
+.tb{display:flex;gap:6px;margin-bottom:8px}.tb button{border:1px solid #cbd5e1;background:#f1f5f9;border-radius:8px;cursor:pointer;padding:4px 10px}.thumb{height:50px;border-radius:6px;vertical-align:middle;margin-left:8px}
+.pv{position:fixed;left:0;right:0;bottom:0;background:#f59e0b;color:#000;padding:10px;text-align:center;z-index:70;display:none;font-weight:700}
+table{width:100%;border-collapse:collapse}td,th{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:.88rem}
+body{background:#f8fafc;color:#1b2a41}</style></head><body><div id="login" class="w" style="max-width:420px;padding-top:60px"><h2>Owner login</h2><input id="lem" type="email" placeholder="Email" autocomplete="username"><input id="lpw" type="password" placeholder="Password" autocomplete="current-password"><button class="btn" id="lb">Sign in</button><span class="err" id="lerr"></span></div><div id="app" hidden><div class="ab" style="position:sticky;top:0"><button class="btn" onclick="sd()">Save Draft</button><button class="btn g" onclick="pvw()">Preview</button><button class="btn" onclick="pub()">Publish Changes</button><button class="btn g" onclick="out()">Log out</button></div><div class="w"><h2>Website Editor</h2><div class="tabs" id="tabs"></div><div id="ed"></div></div></div><div class="toast" id="toast"></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script><script src="/js/defaults.js"></script><script>
+let sb,C=structuredClone(DEF);const toast=m=>{const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000)};
+async function up(p,el){const f=el.files[0];if(!f)return;if(!/^image\/(png|jpeg|webp|svg\+xml)$/.test(f.type)||f.size>5e6){toast('Only PNG, JPG, WebP or SVG under 5 MB');return}
+ const n=Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_');const{error}=await sb.storage.from('media').upload(n,f,{contentType:f.type});if(error){toast('Upload failed: '+error.message);return}
+ sp(C,p,sb.storage.from('media').getPublicUrl(n).data.publicUrl);toast('Image uploaded');edit()}
+/* ---- admin editor ---- */
+const gp=(o,p)=>p.split('.').reduce((a,k)=>a?.[k],o);
+function sp(o,p,v){const k=p.split('.'),l=k.pop();k.reduce((a,x)=>a[x],o)[l]=v}
+function F(p,l,t='t'){const v=gp(C,p);if(t=='c')return`<label><input type=checkbox ${v!==0&&v!==false?'checked':''} onchange="sv('${p}',this.checked?1:0)" style="width:auto"> ${l}</label>`;
+ if(t=='i')return`<label>${l}${v?`<img class=thumb src="${esc(v)}" alt="">`:''}<input type=file accept="image/png,image/jpeg,image/webp,image/svg+xml" onchange="up('${p}',this)"></label>`;
+ if(t=='k')return`<label>${l}<input type=color value="${esc(v)}" oninput="sv('${p}',this.value,1)"></label>`;
+ if(t=='a'||t=='l')return`<label>${l}<textarea rows=3 oninput="sv('${p}',this.value,1)">${esc(v)}</textarea></label>`;
+ return`<label>${l}<input ${t=='n'?'type=number':''} value="${esc(v)}" oninput="sv('${p}',${t=='n'?'+this.value':'this.value'},1)"></label>`}
+function sv(p,v,q){sp(C,p,v);if(!q)edit()}
+function LST(path,sch,tpl,label){const a=gp(C,path);return`<h3>${label}</h3>`+a.map((x,i)=>`<div class=it><div class=tb><button onclick="mv('${path}',${i},-1)">↑</button><button onclick="mv('${path}',${i},1)">↓</button><button onclick="rm('${path}',${i})">Delete</button></div><div class=row>${sch.map(([k,l,t])=>F(`${path}.${i}.${k}`,l,t)).join('')}</div></div>`).join('')+`<button class=btn onclick='ad("${path}",${JSON.stringify(tpl)})'>+ Add</button>`}
+function mv(p,i,d){const a=gp(C,p),j=i+d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];edit()}
+function rm(p,i){if(confirm('Delete this item?')){gp(C,p).splice(i,1);edit()}}
+function ad(p,t){gp(C,p).push(structuredClone(t));edit()}
+const TABS={Brand:()=>`<div class=it><div class=row>${F('brand.name','Company name')}${F('brand.logo','Logo','i')}${F('brand.favicon','Favicon','i')}</div></div><h3>Colors</h3><div class="it row">${Object.keys(DEF.colors).map(k=>F('colors.'+k,k,'k')).join('')}</div><h3>Fonts</h3><div class=it><label>Font family<select onchange="sv('font.ff',this.value)">${['system-ui,sans-serif','Georgia,serif','Arial,sans-serif','Trebuchet MS,sans-serif','Courier New,monospace'].map(f=>`<option ${f==C.font.ff?'selected':''}>${f}</option>`).join('')}</select></label>${F('font.fs','Base size (px)','n')}</div><h3>Hero background</h3><div class="it row">${F('hero.bg','Section color','k')}${F('hero.img','Background image','i')}</div>`,
+Home:()=>`<h3>Hero</h3><div class="it row">${['t:Title','s:Subtitle','b1:Button 1 text','l1:Button 1 link','b2:Button 2 text','l2:Button 2 link'].map(x=>F('hero.'+x.split(':')[0],x.split(':')[1])).join('')}</div><h3>Headings & text</h3><div class="it row">${Object.keys(DEF.tx).map(k=>F('tx.'+k,k)).join('')}</div>`+LST('badges',[['t','Badge text'],['show','Visible','c']],{t:'New badge',show:1},'Trust badges')+LST('tests',[['n','Name'],['q','Quote','a'],['show','Visible','c']],{n:'Name',q:'Great service',show:1},'Testimonials'),
+Services:()=>LST('services',[['n','Name'],['d','Description','a'],['p','Price','n'],['from','"Starting from" label'],['quote','Show "Request a Quote" instead (1/0 = tick)','c'],['list','Included checklist (one per line)','l'],['btn','Button text'],['link','Button link'],['img','Image','i'],['show','Visible','c']],{n:'New service',d:'',p:0,from:'from',list:'',btn:'Book This Service',link:'#book',img:'',show:1,quote:0},'Services'),
+Gallery:()=>LST('gallery',[['t','Title'],['d','Description'],['b','Before image','i'],['a','After image','i'],['show','Visible','c']],{t:'New pair',d:'',b:'',a:'',show:1},'Before & after pairs'),
+'How it works':()=>LST('steps',[['n','Step number'],['t','Title'],['d','Description','a'],['icon','Icon (emoji)'],['show','Visible','c']],{n:'4',t:'',d:'',icon:'✨',show:1},'Steps'),
+Pricing:()=>`<div class="it row">${F('pricing.cur','Currency symbol')}${F('pricing.bed','Per extra bedroom','n')}${F('pricing.bat','Per extra bathroom','n')}${F('tx.disc','Disclaimer')}${F('tx.from','"Starting at" text')}</div>`+LST('pricing.extras',[['n','Add-on'],['p','Price','n']],{n:'New add-on',p:10},'Add-ons')+LST('pricing.pkgs',[['n','Package'],['p','Price (0 = quote)','n'],['d','Description']],{n:'Package',p:0,d:''},'Packages'),
+Areas:()=>`<h3>Contact & map</h3><div class="it row">${['phone','email','wa:WhatsApp number','addr:Address','hours','lat','lng','embed:Map embed URL'].map(x=>F('contact.'+x.split(':')[0],x.split(':')[1]||x)).join('')}</div>`+LST('areas',[['city','City'],['state','State'],['zip','ZIP codes'],['hood','Neighborhoods'],['note','Coverage note'],['show','Visible','c']],{city:'',state:'TX',zip:'',hood:'',note:'',show:1},'Service areas'),
+FAQ:()=>LST('faqs',[['c','Category (Pricing, Booking, Services, General)'],['q','Question'],['a','Answer','a'],['show','Published','c']],{c:'General',q:'',a:'',show:1},'FAQs'),
+Bookings:()=>'<div id=bk2>Loading…</div>',History:()=>'<div id=hs>Loading…</div>'};
+let tab='Brand';
+function edit(){$('tabs').innerHTML=Object.keys(TABS).map(t=>`<button class="${t==tab?'on':''}" onclick="tab='${t}';edit()">${t}</button>`).join('');const y=scrollY;$('ed').innerHTML=TABS[tab]();if(tab=='Bookings')bks();if(tab=='History')hist()}
+
+const _b=TABS.Bookings,_h=TABS.History;delete TABS.Bookings;delete TABS.History;
+TABS.Navigation=()=>LST('nav',[['t','Label'],['l','Link (#home, #services, #book, #contact or a URL)'],['show','Visible','c']],{t:'New',l:'#home',show:1},'Menu links');
+TABS['Footer & SEO']=()=>`<h3>Footer</h3><div class=it>${F('footer.text','Footer text (blank = automatic)')}</div>`+LST('social',[['n','Name'],['u','URL'],['show','Visible','c']],{n:'Instagram',u:'https://',show:1},'Social links')+`<h3>SEO</h3><div class="it row">${F('seo.title','Page title')}${F('seo.desc','Description','a')}${F('seo.kw','Keywords')}${F('seo.og','Social sharing image','i')}</div>`;
+TABS.Media=()=>'<div id=md>Loading…</div>';TABS.Bookings=_b;TABS.History=_h;
+const _e=edit;edit=function(){_e();if(tab=='Media')media()};
+async function media(){const{data}=await sb.storage.from('media').list('',{limit:200,sortBy:{column:'created_at',order:'desc'}});$('md').innerHTML=`<div class=it><label>Upload image<input type=file accept="image/*" onchange="mup(this)"></label></div><div class=row>`+(data||[]).filter(x=>x.name!='.emptyFolderPlaceholder').map(x=>{const u=sb.storage.from('media').getPublicUrl(x.name).data.publicUrl;return`<div class=it><img src="${esc(u)}" style="width:100%;height:100px;object-fit:cover" alt=""><input readonly value="${esc(u)}" onclick="this.select()"><button class=btn onclick="mdel('${esc(x.name)}')">Delete</button></div>`}).join('')+'</div>'}
+async function mup(el){const f=el.files[0];if(!f)return;if(!/^image\//.test(f.type)||f.size>5e6){toast('Image under 5 MB only');return}const{error}=await sb.storage.from('media').upload(Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_'),f);toast(error?error.message:'Uploaded');media()}
+async function mdel(n){if(!confirm('Delete this file? Pages using it will break.'))return;await sb.storage.from('media').remove([n]);media()}
+async function bks(){const{data:s}=await sb.from('bookings').select('*').order('created_at',{ascending:false});const{data:q}=await sb.from('quotes').select('*').order('created_at',{ascending:false});
+ $('bk2').innerHTML=`<table><tr><th>Customer<th>Service<th>When<th>Total<th>Status<th>Cleaner</tr>${(s||[]).map(b=>`<tr><td>${esc(b.name)}<br>${esc(b.phone)} ${esc(b.email)}<br>${esc(b.address)}<td>${esc(b.service)}<td>${esc(b.date)} ${esc(b.time)}<td>${esc(b.total)}<td><select onchange="bu(${b.id},{status:this.value})">${['Pending','Approved','Rejected','Rescheduled','Cancelled'].map(x=>`<option ${x==b.status?'selected':''}>${x}`).join('')}</select><td><select onchange="bu(${b.id},{cleaner:this.value})">${['Unassigned','Maria','James','Aisha'].map(x=>`<option ${x==b.cleaner?'selected':''}>${x}`).join('')}</select></tr>`).join('')}</table><h3>Quote requests (${(q||[]).length})</h3>${(q||[]).map(x=>`<p><b>${esc(x.name)}</b> ${esc(x.email)}: ${esc(x.message)}</p>`).join('')}`}
+async function bu(id,x){const{error}=await sb.from('bookings').update(x).eq('id',id);toast(error?error.message:'Updated')}
+async function hist(){const{data}=await sb.from('site_history').select('id,created_at').order('created_at',{ascending:false}).limit(30);$('hs').innerHTML=(data||[]).length?data.map(d=>`<div class=it>${new Date(d.created_at).toLocaleString()} <button class=btn onclick="rst(${d.id})">Restore to draft</button></div>`).join(''):'No published versions yet.'}
+async function rst(id){const{data}=await sb.from('site_history').select('data').eq('id',id).single();C=merge(structuredClone(DEF),data.data);edit();toast('Restored into draft. Preview, then Publish.')}
+async function sd(){const{error}=await sb.from('site_content').upsert({id:'draft',data:C,updated_at:new Date().toISOString()});toast(error?'Save failed: '+error.message:'Draft saved');return !error}
+async function pub(){if(!confirm('Publish to the live website?'))return;if(!await sd())return;const a=await sb.from('site_content').upsert({id:'live',data:C,updated_at:new Date().toISOString()});if(a.error){toast('Publish failed: '+a.error.message);return}await sb.from('site_history').insert({data:C});toast('Published! Live site updated.')}
+async function pvw(){if(await sd())open('/?preview=1','_blank')}
+async function out(){await sb.auth.signOut();location.reload()}
+async function start(){const{data:a}=await sb.from('admins').select('user_id');if(!a||!a.length){await sb.auth.signOut();$('lerr').textContent='This account is not an owner.';return}
+ $('login').hidden=true;$('app').hidden=false;const{data:d}=await sb.from('site_content').select('id,data').in('id',['draft','live']);const g=i=>(d||[]).find(x=>x.id==i);C=merge(structuredClone(DEF),(g('draft')||g('live')||{}).data||{});edit()}
+(async()=>{try{const c=await (await fetch('/.netlify/functions/config')).json();sb=supabase.createClient(c.url,c.key)}catch(e){$('lerr').textContent='Config missing. Check Netlify variables.';return}
+ $('lb').onclick=async()=>{$('lerr').textContent='';const{error}=await sb.auth.signInWithPassword({email:$('lem').value,password:$('lpw').value});if(error){$('lerr').textContent=error.message;return}start()};
+ const{data}=await sb.auth.getSession();if(data.session)start()})();
+</script></body></html>

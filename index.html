@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Loading…</title><style>
+:root{--primary:#0b1f3a;--secondary:#f3f5f8;--btn:#10b981;--bg:#fff;--tx:#1b2a41;--card:#f3f5f8;--hd:#0b1f3a;--ft:#0b1f3a;--acc:#10b981;--fs:16px;--ff:system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:var(--fs)/1.6 var(--ff);background:var(--bg);color:var(--tx)}
+h1,h2,h3{color:var(--hd);line-height:1.15;margin:0 0 .5em}h1{font-size:clamp(2.1rem,6vw,3.8rem)}h2{font-size:clamp(1.6rem,4vw,2.4rem)}
+a{color:inherit;text-decoration:none}.w{max-width:1120px;margin:auto;padding:0 20px}section{padding:64px 0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--primary);color:#fff}
+nav .w{display:flex;align-items:center;gap:18px;height:64px}nav .l{margin-left:auto;display:flex;gap:16px;align-items:center}
+.logo{font-weight:800;display:flex;align-items:center;gap:8px}.logo img{height:36px}
+.btn{display:inline-block;background:var(--btn);color:#fff;font-weight:700;padding:12px 22px;border-radius:99px;border:0;cursor:pointer;font:inherit;font-weight:700}
+.btn.g{background:#cbd5e1;color:#1b2a41}.btn.o{background:transparent;border:2px solid #fff}
+@media(max-width:760px){nav .l a:not(.btn){display:none}}
+.hero{color:#fff;padding:90px 0;background:var(--primary) center/cover}.hero h1{color:#fff;max-width:740px}.hero p.s{font-size:1.2rem;max-width:560px}
+.bd{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.bd span{background:#ffffff26;padding:7px 14px;border-radius:99px;font-size:.9rem}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 18px #0b1f3a14;transition:.25s}.card:hover{transform:translateY(-4px)}
+.ph{height:140px;border-radius:12px;margin-bottom:12px;background:#d1fae5 center/cover;display:grid;place-items:center;font-size:2rem}
+.pr{color:var(--acc);font-weight:800}.alt{background:var(--secondary)}
+.ba{position:relative;height:260px;border-radius:18px;overflow:hidden;background:#94a3b8 center/cover}.ba .b{position:absolute;inset:0;width:50%;background:#64748b center/cover;border-right:3px solid #fff}.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+details{background:var(--card);border-radius:12px;padding:12px 16px;margin-bottom:10px}summary{cursor:pointer;font-weight:600}
+.cta{background:var(--primary);color:#fff;text-align:center;border-radius:26px;padding:52px 20px}.cta h2{color:#fff}
+input,select,textarea{width:100%;padding:11px 13px;border:1.5px solid #cbd5e1;border-radius:10px;font:inherit;background:#fff;color:#1b2a41;margin:4px 0 10px}
+.err{color:#dc2626;font-size:.85rem;display:block;min-height:1em}
+.pg{display:none}.pg.on{display:block}.steps{display:flex;gap:6px;margin-bottom:18px}.steps i{flex:1;height:6px;border-radius:9px;background:#cbd5e1}.steps i.d{background:var(--btn)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.opt{border:2px solid #cbd5e1;border-radius:12px;padding:12px;cursor:pointer;text-align:center}.opt.s{border-color:var(--btn);background:#10b98122}
+.est{background:var(--primary);color:#fff;border-radius:14px;padding:12px 18px;margin:14px 0;display:flex;justify-content:space-between;font-weight:700}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px;z-index:30}.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;color:#fff;box-shadow:0 6px 16px #0004}
+footer{background:var(--ft);color:#cbd5e1;padding:36px 0;font-size:.9rem}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:#10b981;color:#04281c;padding:12px 22px;border-radius:99px;font-weight:700;display:none;z-index:99}
+.map{min-height:220px;border-radius:18px;background:#e2e8f0;display:grid;place-items:center;text-align:center;color:#475569;overflow:hidden}.map iframe{width:100%;height:260px;border:0}
+.rv{opacity:0;transform:translateY(22px);transition:.7s}.rv.in{opacity:1;transform:none}
+/* admin */
+.adm{position:fixed;inset:0;background:#f8fafc;color:#1b2a41;z-index:60;overflow:auto;display:none}.adm h2,.adm h3{color:#0b1f3a}
+.ab{position:sticky;top:0;background:#0b1f3a;padding:10px;display:flex;gap:8px;flex-wrap:wrap;z-index:2}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.tabs button{padding:8px 14px;border-radius:99px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;font:inherit}.tabs button.on{background:#10b981;color:#fff;border-color:#10b981}
+.it{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-bottom:12px}.it label,.fl label{font-size:.8rem;color:#475569;display:block}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 12px}
+.tb{display:flex;gap:6px;margin-bottom:8px}.tb button{border:1px solid #cbd5e1;background:#f1f5f9;border-radius:8px;cursor:pointer;padding:4px 10px}.thumb{height:50px;border-radius:6px;vertical-align:middle;margin-left:8px}
+.pv{position:fixed;left:0;right:0;bottom:0;background:#f59e0b;color:#000;padding:10px;text-align:center;z-index:70;display:none;font-weight:700}
+table{width:100%;border-collapse:collapse}td,th{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:.88rem}
+</style></head><body>
+<nav><div class="w"><a href="#" class="logo" onclick="go('home')" id="logo"></a><div class="l" id="nav"></div></div></nav>
+<main class="pg on" id="p-home">
+<header class="hero" id="hero"><div class="w"><h1 id="hT"></h1><p class="s" id="hS"></p><p id="hB"></p><div class="bd" id="bds"></div></div></header>
+<section><div class="w rv"><h2 data-t="servicesH"></h2><div class="grid" id="svH"></div></div></section>
+<section class="alt" id="diff"><div class="w rv"><h2 data-t="diffH"></h2><div class="grid" id="gal"></div></div></section>
+<section><div class="w rv"><h2 data-t="howH"></h2><div class="grid" id="how"></div></div></section>
+<section class="alt"><div class="w rv"><h2 data-t="revH"></h2><div class="grid" id="tst"></div></div></section>
+<section><div class="w rv"><h2 data-t="priceH"></h2><div class="grid" id="pkg"></div><p id="disc" style="color:#64748b"></p></div></section>
+<section class="alt"><div class="w rv"><h2 data-t="areaH"></h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"><div class="map" id="map1"></div><div class="card" id="areas"></div></div></div></section>
+<section><div class="w rv"><h2 data-t="faqH"></h2><div id="faq"></div></div></section>
+<section><div class="w rv"><div class="cta"><h2 data-t="ctaH"></h2><p data-t="ctaP"></p><a class="btn" href="#" onclick="go('book');return false" id="ctaB"></a></div></div></section></main>
+<main class="pg" id="p-services"><section><div class="w"><h1 data-t="servicesH"></h1><div class="grid" id="svF"></div></div></section></main>
+<main class="pg" id="p-book"><section><div class="w" style="max-width:700px"><h1>Book Your Cleaning</h1><div class="steps" id="bs"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="bs" id="b1"><h3>1. Service</h3><div class="opts" id="oS"></div></div>
+<div class="bs" id="b2" hidden><h3>2. Property</h3><div class="opts" id="oT"></div><label>Bedrooms<input type="number" id="bed" min="0" max="10" value="2"></label><label>Bathrooms<input type="number" id="bat" min="1" max="10" value="1"></label></div>
+<div class="bs" id="b3" hidden><h3>3. Date, time & extras</h3><label>Date<input type="date" id="dt"></label><label>Time<select id="tm"><option>8:00 AM</option><option>10:00 AM</option><option>12:00 PM</option><option>2:00 PM</option><option>4:00 PM</option></select></label><div class="opts" id="oX"></div></div>
+<div class="bs" id="b4" hidden><h3>4. Details</h3><label>Full name<input id="nm"></label><label>Phone<input id="ph" type="tel"></label><label>Email<input id="em" type="email"></label><label>Service address<input id="ad"></label><p>🔒 Secure payment after confirmation · 💳 Visa · Mastercard · Amex</p></div>
+<div class="bs" id="b5" hidden><h3>🎉 Booking confirmed!</h3><p id="sum"></p></div>
+<span class="err" id="be"></span><div class="est"><span>Estimate</span><span id="est">$0</span></div><button class="btn g" id="bk" onclick="bn(-1)">Back</button> <button class="btn" id="nx" onclick="bn(1)">Continue</button></div></section></main>
+<main class="pg" id="p-contact"><section><div class="w"><h1>Contact Us</h1><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div><p id="ci"></p><a class="btn" id="wa" target="_blank" rel="noopener">WhatsApp us</a><div class="map" id="map2" style="margin-top:18px"></div></div>
+<form id="cf" novalidate><label>Name<input id="cn"></label><label>Email<input id="ce" type="email"></label><label>Message<textarea id="cm" rows="4"></textarea></label><span class="err" id="ce2"></span><button class="btn" id="cb">Send message</button></form></div></div></section></main>
+<footer><div class="w" id="ft"></div></footer>
+<div class="fab"><a id="fw" style="background:#25d366">💬</a><a id="fp" style="background:var(--primary)">📞</a></div>
+<div class="toast" id="toast"></div><div class="pv" id="pv">Preview of unpublished draft <button class="btn g" onclick="exitPv()">Back to admin</button></div>
+<script src="/js/defaults.js"></script><script>let C=structuredClone(DEF),live=C,draft=null,db=null,assets=null,usr=null,isAdm=false;
+const toast=m=>{const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2800)};
+const cur=()=>C.pricing.cur||'$';
+function vis(a){return a.filter(x=>x.show!==0&&x.show!==false)}
+function paint(){const r=document.documentElement.style,c=C.colors;
+ [['primary','primary'],['secondary','secondary'],['btn','btn'],['bg','bg'],['tx','tx'],['card','card'],['hd','hd'],['ft','ft'],['acc','acc']].forEach(([a,b])=>r.setProperty('--'+a,c[b]));
+ r.setProperty('--ff',C.font.ff);r.setProperty('--fs',C.font.fs+'px');
+ document.title=C.seo.title||C.brand.name;[['description',C.seo.desc],['keywords',C.seo.kw]].forEach(([n,v])=>{let m=document.querySelector('meta[name='+n+']');if(!m){m=document.createElement('meta');m.name=n;document.head.appendChild(m)}m.content=v||''});if(C.seo.og){let o=document.querySelector('meta[property="og:image"]')||document.head.appendChild(document.createElement('meta'));o.setAttribute('property','og:image');o.content=C.seo.og}
+ if(C.brand.favicon){let l=document.querySelector('link[rel=icon]')||document.head.appendChild(Object.assign(document.createElement('link'),{rel:'icon'}));l.href=C.brand.favicon}
+ $('logo').innerHTML=(C.brand.logo?`<img src="${esc(C.brand.logo)}" alt="">`:'✨ ')+esc(C.brand.name);
+ $('nav').innerHTML=vis(C.nav).map(n=>`<a href="${esc(okL(n.l))}" onclick="return lk(this)">${esc(n.t)}</a>`).join('')+`<a class="btn" href="#book" onclick="return lk(this)">Book Now</a>`;
+ const h=C.hero;$('hero').style.background=h.img?`linear-gradient(#0b1f3a99,#0b1f3a99),url(${esc(h.img)}) center/cover`:h.bg;
+ $('hT').textContent=h.t;$('hS').textContent=h.s;
+ $('hB').innerHTML=`<a class="btn" href="${esc(okL(h.l1))}" onclick="return lk(this)">${esc(h.b1)}</a> <a class="btn o" href="${esc(okL(h.l2))}" onclick="return lk(this)">${esc(h.b2)}</a>`;
+ $('bds').innerHTML=vis(C.badges).map(b=>`<span>${esc(b.t)}</span>`).join('');
+ document.querySelectorAll('[data-t]').forEach(e=>e.textContent=C.tx[e.dataset.t]);
+ $('ctaB').textContent=C.tx.ctaB;
+ const pr=s=>s.quote||!s.p?`<span class=pr>${esc(C.tx.quote)}</span>`:`<span class=pr>${esc(s.from)} ${esc(cur())}${esc(s.p)}</span>`;
+ const sc=s=>`<div class=card><div class=ph style="${s.img?`background-image:url(${esc(s.img)})`:''}">${s.img?'':'🧹'}</div><h3>${esc(s.n)}</h3><p>${esc(s.d)}</p>${s.list?`<ul>${s.list.split('\n').filter(Boolean).map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`:''}${pr(s)}<p><a class=btn href="${esc(okL(s.link))}" onclick="return lk(this,'${esc(s.n).replace(/'/g,'')}')">${esc(s.btn)}</a></p></div>`;
+ const vs=vis(C.services);$('svH').innerHTML=vs.slice(0,4).map(sc).join('');$('svF').innerHTML=vs.map(sc).join('');
+ $('gal').innerHTML=vis(C.gallery).map(g=>`<div><div class=ba style="${g.a?`background-image:url(${esc(g.a)})`:'background:#6ee7b7'}"><div class=b style="${g.b?`background-image:url(${esc(g.b)})`:''}"></div><input type=range min=5 max=95 value=50 aria-label="Before after slider" oninput="this.previousElementSibling.style.width=this.value+'%'"></div><h3 style="margin-top:10px">${esc(g.t)}</h3><p>${esc(g.d)}</p></div>`).join('');
+ $('how').innerHTML=vis(C.steps).map(s=>`<div><div style="font-size:2rem">${esc(s.icon)} <b class=pr>${esc(s.n)}</b></div><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p></div>`).join('');
+ $('tst').innerHTML=vis(C.tests).map(t=>`<div class=card><p>"${esc(t.q)}"</p><b>⭐⭐⭐⭐⭐ ${esc(t.n)}</b></div>`).join('');
+ $('pkg').innerHTML=C.pricing.pkgs.map(p=>`<div class=card><h3>${esc(p.n)}</h3><div class=pr style="font-size:2rem">${p.p?esc(cur())+esc(p.p):esc(C.tx.quote)}</div><p>${esc(p.d)}</p></div>`).join('');$('disc').textContent=C.tx.disc;
+ $('areas').innerHTML=vis(C.areas).map(a=>`<p><b>${esc(a.city)}, ${esc(a.state)}</b> ${esc(a.zip)} ${esc(a.hood)} <small>${esc(a.note)}</small></p>`).join('');
+ const k=C.contact,mp=/^https:\/\/www\.google\.com\/maps\/embed/.test(k.embed)?`<iframe src="${esc(k.embed)}" title="Map" loading=lazy></iframe>`:`🗺️ Map<br>${esc(k.lat)}, ${esc(k.lng)}`;$('map1').innerHTML=$('map2').innerHTML=mp;
+ const cats=[...new Set(vis(C.faqs).map(f=>f.c))];$('faq').innerHTML=cats.map(c=>`<h3>${esc(c)}</h3>`+vis(C.faqs).filter(f=>f.c==c).map(f=>`<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('')).join('');
+ $('ci').innerHTML=`📞 ${esc(k.phone)}<br>✉️ ${esc(k.email)}<br>📍 ${esc(k.addr)}<br>🕗 ${esc(k.hours)}`;
+ $('wa').href=$('fw').href='https://wa.me/'+esc(k.wa.replace(/\D/g,''));$('fp').href='tel:'+esc(k.phone.replace(/[^\d+]/g,''));
+ $('ft').innerHTML=esc(C.footer.text||('© 2026 '+C.brand.name+' · '+k.addr+' · '+k.phone))+vis(C.social).map(s=>` · <a href="${esc(okL(s.u))}" rel="noopener" target="_blank">${esc(s.n)}</a>`).join('');
+ $('oS').innerHTML=vs.map(s=>`<div class=opt data-n="${esc(s.n)}">${s.img?`<img src="${esc(s.img)}" alt="" style="width:100%;height:60px;object-fit:cover;border-radius:8px"><br>`:''}${esc(s.n)}</div>`).join('');
+ $('oT').innerHTML=['House','Apartment','Office','Vacation rental'].map(t=>`<div class=opt data-t="${t}">${t}</div>`).join('');
+ $('oX').innerHTML=C.pricing.extras.map(x=>`<div class="opt x" data-p="${+x.p||0}">${esc(x.n)} +${esc(cur())}${esc(x.p)}</div>`).join('');
+ document.querySelectorAll('#oS .opt,#oT .opt').forEach(o=>o.onclick=()=>{o.parentNode.querySelectorAll('.opt').forEach(z=>z.classList.remove('s'));o.classList.add('s');est()});
+ document.querySelectorAll('#oX .opt').forEach(o=>o.onclick=()=>{o.classList.toggle('s');est()});
+ document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));
+}
+function lk(a,svc){const h=a.getAttribute('href');if(['#book','#contact','#services','#home'].includes(h)){go(h.slice(1));if(svc)pickS(svc);return false}return true}
+function go(p){document.querySelectorAll('.pg').forEach(e=>e.classList.remove('on'));$('p-'+p).classList.add('on');scrollTo(0,0)}
+function pickS(n){go('book');[...document.querySelectorAll('#oS .opt')].find(o=>o.dataset.n==n)?.click()}
+let step=1;
+function est(){const o=document.querySelector('#oS .s');if(!o){$('est').textContent=cur()+'0';return}const s=C.services.find(x=>x.n==o.dataset.n);if(!s||s.quote||!s.p){$('est').textContent=C.tx.quote;return}let t=+s.p+Math.max(0,$('bed').value-2)*C.pricing.bed+Math.max(0,$('bat').value-1)*C.pricing.bat;document.querySelectorAll('#oX .s').forEach(x=>t+=+x.dataset.p);$('est').textContent=cur()+t}
+['bed','bat'].forEach(i=>$(i).oninput=est);
+function show(){document.querySelectorAll('.bs').forEach((e,i)=>e.hidden=i+1!=step);document.querySelectorAll('#bs i').forEach((e,i)=>e.classList.toggle('d',i<step));$('bk').style.visibility=step==1||step==5?'hidden':'visible';$('nx').style.display=step==5?'none':'';$('nx').textContent=step==4?'Confirm booking':'Continue'}
+async function bn(d){let m='';if(d>0){if(step==1&&!document.querySelector('#oS .s'))m='Choose a service.';if(step==2&&!document.querySelector('#oT .s'))m='Choose a property type.';if(step==3&&!$('dt').value)m='Pick a date.';if(step==4&&!($('nm').value.trim()&&/^\S+@\S+\.\S+$/.test($('em').value)&&$('ph').value.trim().length>6&&$('ad').value.trim()))m='Complete all fields with a valid email.'}
+ $('be').textContent=m;if(m)return;
+ if(step==4&&d>0){$('nx').disabled=1;$('nx').textContent='Saving…';const b={n:$('nm').value,ph:$('ph').value,e:$('em').value,ad:$('ad').value,s:document.querySelector('#oS .s').dataset.n,d:$('dt').value,t:$('tm').value,p:$('est').textContent,st:'Pending',cl:'Unassigned',ts:Date.now()};
+  try{await ins('bookings',{name:b.n,phone:b.ph,email:b.e,address:b.ad,service:b.s,date:b.d,time:b.t,total:b.p})}catch(e){}
+  $('sum').textContent=`${b.s} · ${b.d} ${b.t} · ${b.p}. We will text you to confirm.`;step=5;$('nx').disabled=0;show();return}
+ step=Math.min(5,Math.max(1,step+d));show()}
+$('cf').onsubmit=async e=>{e.preventDefault();if(!$('cn').value.trim()||!/^\S+@\S+\.\S+$/.test($('ce').value)||!$('cm').value.trim()){$('ce2').textContent='Complete all fields with a valid email.';return}$('ce2').textContent='';$('cb').textContent='Sending…';const q={n:$('cn').value,e:$('ce').value,m:$('cm').value,ts:Date.now()};try{await ins('quotes',{name:q.n,email:q.e,message:q.m})}catch(e){}$('cf').reset();$('cb').textContent='Send message';toast('Thanks! We will reply soon.')};
+
+async function ins(t,row){const c=window.SB;if(!c)throw 0;const r=await fetch(c.url+'/rest/v1/'+t,{method:'POST',headers:{apikey:c.key,Authorization:'Bearer '+c.key,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(row)});if(!r.ok)throw 0}
+function tok(){for(const k of Object.keys(localStorage)){if(/^sb-.*-auth-token$/.test(k)){try{return JSON.parse(localStorage[k]).access_token}catch(e){}}}}
+function exitPv(){location.href='/admin/'}
+(async()=>{paint();show();try{const c=await (await fetch('/.netlify/functions/config')).json();window.SB=c;let id='live',h={apikey:c.key,Authorization:'Bearer '+c.key};
+ if(new URLSearchParams(location.search).get('preview')){const t=tok();if(t){h.Authorization='Bearer '+t;id='draft';$('pv').style.display='block'}}
+ const r=await fetch(c.url+'/rest/v1/site_content?id=eq.'+id+'&select=data',{headers:h});const j=await r.json();if(j[0]&&j[0].data){C=merge(structuredClone(DEF),j[0].data);paint()}}catch(e){}})();
+</script></body></html>
